@@ -1,5 +1,7 @@
 const db = wx.cloud.database()
 const userCollection = db.collection('user')
+const leaderCollection = db.collection('talker_leaders')
+
 Page({
 
   /**
@@ -12,32 +14,7 @@ Page({
     group: '',
     tabType: 'tab1',
 		key: 'tab1',
-		conditionList: [{
-				title: '组长1',
-				id: '1',
-				select: true
-			},
-			{
-				title: '组长2',
-				id: '2',
-				select: false
-			},
-			{
-				title: '组长3',
-				id: '3',
-				select: false
-			},
-			{
-				title: '组长4',
-				id: '4',
-				select: false
-			},
-			{
-				title: '组长5',
-				id: '5',
-				select: false
-      },
-		],
+		conditionList: [],
     choosedCondition: {
 			title: "请选择组长",
 			id: '00'
@@ -62,7 +39,7 @@ showCondition() {
   })
 },
 // 改变查询项
-onChnageCondition(e) {
+onChangeCondition(e) {
   const list = this.data.conditionList
   list.forEach(item => {
     if (item.id === e.currentTarget.dataset.id) {
@@ -123,18 +100,37 @@ gotoTalkPage: function(param){
   }
 },
 
+loadConditionList: function() {
+  var that = this
+  var i = 1
+
+  leaderCollection.get({
+    success(res) {
+      res.data.forEach(item => {
+        that.data.conditionList.push({
+          title: item.name,
+          id: i.toString(),
+          select: false
+        },)
+
+        i++
+      })
+    }
+  })
+},
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.loadConditionList()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    //console.log(this.data.conditionList)
   },
 
   /**
