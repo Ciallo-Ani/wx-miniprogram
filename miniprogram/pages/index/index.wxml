@@ -1,0 +1,33 @@
+<view class="page-body">
+  <view class="container">
+    <form class="bm-form" action="" catchsubmit="formSubmit" catchreset="formReset">
+      <view class="in-input">
+        <label for="">姓名：</label>
+        <input type="text" name="username" bindinput="bindinput" data-type="name" />
+      </view>
+      <view class="in-input">
+        <label for="">班级：</label>
+        <input type="text" name="username" bindinput="bindinput" data-type="classes" />
+      </view>
+      <view class="in-input">
+        <label for="">学号：</label>
+        <input type="text" name="username"  bindinput="bindinput" data-type="SId"/>
+      </view>
+     
+      <view class="search-bar">
+      <label class="te">组长:</label>
+        <view class="condition" bindtap="showCondition">
+            <view class="select-condition">{{choosedCondition.title}}</view>
+            <view class="trigger {{ conditionVisible ? 'reverse' : ''}}"></view>
+            <cover-view class="option-list" style="height: {{conditionVisible ? '360rpx': '0'}}">
+                <cover-view bindtap="onChnageCondition" data-id="{{item.id}}" class="list-item" wx:for="{{conditionList}}" wx:key="index" wx:for-index="index">
+                    <cover-view class="title">{{item.title}}</cover-view>
+                    <cover-view class="title" wx:if="{{item.select}}">√</cover-view>
+                </cover-view>
+            </cover-view>
+        </view>
+    </view>
+      <button class="sm-btn" bindtap="gotoTalkPage">提交</button>
+    </form>
+  </view>
+</view>

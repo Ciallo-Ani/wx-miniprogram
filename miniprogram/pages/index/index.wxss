@@ -1,0 +1,118 @@
+.container{
+  padding: 20px;
+}
+form{
+  display: block;
+  margin-top: 30px;
+  padding: 10px 0;
+}
+.in-input{
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+.in-input label{
+  float: left;
+}
+.in-input input{
+  border-bottom: 1px solid #f10;
+  font-size: 14px;
+  padding: 0 10rpx;
+}
+.sm-btn{
+  margin-top: 20px;
+  width: 50px;
+  height: 30px;
+  background: #f10;
+  font-size: 14px;
+  color: #fff;
+  padding: 5px;
+}
+.te{
+  width: 60px;
+  font-size: 18px;
+}
+/* 组长选择 */
+.search-bar {
+  width: 80%;
+  height: 84rpx;
+  margin: 0 auto;
+  background: #fff;
+  /* border-top: 1rpx solid #f6f6f6; */
+  /* box-sizing: border-box; */
+  padding: 0 5rpx;
+  display: flex;
+  align-items: center;
+  /* border: 1rpx solid red; */
+}
+
+.search-bar .condition {
+  width: 100%;
+  height: 64rpx;
+  border-radius: 30rpx;
+  border: 1px solid #000;
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  position: relative;
+}
+
+.search-bar .condition .option-list {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  left: 0;
+  top: 60rpx;
+  box-sizing: border-box;
+  background: #f4f4f4;
+  padding: 0rpx 20rpx;
+  margin-top: 4rpx;
+  border-radius: 6rpx;
+}
+
+.option-list .list-item {
+  color: #000;
+  font-size: 26rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rpx 0;
+}
+
+.option-list .list-item .title:first-child{
+  padding-left: 20rpx;
+  min-width: 50px;
+  max-width: 150px;
+}
+.option-list .list-item .title:last-child{
+  padding-right: 20rpx;
+}
+.search-bar .condition .select-condition {
+  color: #000;
+  font-size: 26rpx;
+}
+
+.search-bar .condition .trigger {
+  width: 0;
+  height: 0;
+  border: 12rpx solid transparent;
+  border-top: 15rpx solid #c2c2c2;
+  position: relative;
+  top: 8rpx;
+  transform: rotate(0deg);
+  transform-origin: center 7rpx;
+  transition: transform 0.4s;
+}
+
+.search-bar .condition .trigger.reverse {
+  transform: rotate(180deg);
+  transform-origin: center 7rpx;
+  transition: transform 0.4s;
+}
+
+/* 下拉框结束 */
